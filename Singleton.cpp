@@ -39,15 +39,34 @@ public:
 Singleton* Singleton::singleton_= nullptr;
 
 
+class MLModel : public Singleton{
+public:
+  void train();
+  void predict();
+
+  static MLModel* GetInstance(const std::string& value){return (MLModel*)Singleton::GetInstance(value);}
+
+};
+
+void MLModel::train(){
+  // training logic
+  std::cout << "training model\n";
+}
+
+void MLModel::predict(){
+  // prediction logic
+  std::cout << "prediction\n";
+}
+
+
+
 int main() {
 
-  Singleton* example = Singleton::GetInstance("Hi!, I'm a singleton");
+  Singleton* example = Singleton::GetInstance("YOLOv8");
 
-  example->log();
+  Singleton* example2 = Singleton::GetInstance("YOLOv8");
 
-  Singleton* example2 = Singleton::GetInstance("Hi!, I'm a second singleton");
-
-  example2->log();
+  std::cout << (example == example2) <<  std::endl;
 
   return 0;
 }
