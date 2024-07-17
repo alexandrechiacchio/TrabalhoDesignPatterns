@@ -62,9 +62,9 @@ void MLModel::predict(){
 
 int main() {
 
-  Singleton* example = Singleton::GetInstance("YOLOv8");
+  MLModel* example = MLModel::GetInstance("YOLOv8");
 
-  Singleton* example2 = Singleton::GetInstance("YOLOv8");
+  MLModel* example2 = MLModel::GetInstance("YOLOv8");
 
   std::cout << (example == example2) <<  std::endl;
 
